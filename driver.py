@@ -229,7 +229,7 @@ class Main(object):
         
     def parse_arguments(self, args):
         from argparse import ArgumentParser
-        parser = ArgumentParser()
+        parser = ArgumentParser(prog=self.name)
         mutex_group = parser.add_mutually_exclusive_group()
         mutex_group.add_argument("--test", nargs="?", metavar="VERBOSITY", 
             default=False, const=1, help="Run test cases. Use verbosity of 1 "\
