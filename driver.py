@@ -152,12 +152,12 @@ class DriverTestCase(unittest.TestCase):
         
         if data.error_class:
             try:
-                self.driver.execute_all(enumerate(cases, 1))
+                self.driver.execute_serially(enumerate(cases, 1))
                 raise AssertionError("Expected execution failure")
             except data.error_class:
                 return
         else:
-            results = self.driver.execute_all(enumerate(cases, 1))
+            results = self.driver.execute_serially(enumerate(cases, 1))
             self.assertEqual(len(results), data.num_cases, "Incorrect number of results")
             
             from cStringIO import StringIO
