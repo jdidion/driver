@@ -18,3 +18,42 @@ class ProblemA(Main):
     
 if __name__ == '__main__':
     ProblemA().run()
+    
+If you want to have unit tests but don't want to mess with the unittest module,
+you can simply provide the test data and test cases will be built for you.
+Test data is supplied as a list of driver.TestData objects. Each TestData
+has four bits of information: the test name, number of cases, input data and
+expected output. Input and output data are automatically de-dented, so you can
+format them for readability.
+
+from driver import Main, TestData
+
+class CandySplit(Main):
+    """Implementation of GCJ2011 qualifying problem C: Candy Split."""
+    
+    ...
+    
+    def get_test_data(self):
+        return [
+            driver.TestData('given', 2, 
+                """\
+                2
+                5
+                1 2 3 4 5
+                3
+                3 5 6
+                """,
+                """\
+                Case #1: NO
+                Case #2: 11
+                """),
+            driver.TestData('edge_case', 1,
+                """\
+                1
+                1
+                1
+                """,
+                """\
+                Case #1: NO
+                """)
+            ]
