@@ -65,7 +65,7 @@ class CandySplit(Main):
 
 Running the program:
 
-```python
+```sh
 # Run as an interactive shell. Process each input immediately after
 # it is entered and prints the output.
 $ problemA.py
